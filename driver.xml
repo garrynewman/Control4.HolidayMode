@@ -1,0 +1,87 @@
+<devicedata>
+
+	<name>Garry's Holiday Mode</name>
+	<model>Experience Button</model>
+	<creator>Garry Newman</creator>
+	<created>01/7/2020 10:00</created>
+	<modified>01/7/2020 10:00</modified>
+  	<manufacturer>Garry Newman</manufacturer>
+
+  	<version>1</version>
+
+	<small image_source="c4z">icons/device_sm.png</small>
+	<large image_source="c4z">icons/device_lg.png</large>
+
+	<control>lua_gen</control>
+	<driver>DriverWorks</driver>
+	<copyright>MIT License</copyright>
+
+	<capabilities>
+		<navigator_display_option proxybindingid="5001">
+			<display_icons>
+				<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode0.png</Icon>
+				<state id="mode0">
+					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode0.png</Icon>
+				</state>
+				<state id="mode1">
+					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode1.png</Icon>
+				</state>
+				<state id="mode2">
+					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode2.png</Icon>
+				</state>
+				<state id="mode3">
+					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode3.png</Icon>
+				</state>
+				<state id="mode4">
+					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode4.png</Icon>
+				</state>
+			</display_icons>
+		</navigator_display_option>
+
+	</capabilities>
+
+	<config>
+
+		<script file="driver.lua"></script>
+		
+		<properties>
+
+			<property>
+				<name>Watch Devices</name>
+				<type>DEVICE_SELECTOR</type>
+				<items>
+					<item>contactsingle_motionsensor.c4i</item>
+					<item>DoorWindow_zb_nyce_3011.c4z</item>
+				</items>
+				<multiselect>true</multiselect>
+			</property>
+
+		</properties>
+
+	</config>
+
+  <proxies>
+		<proxy proxybindingid="5001" name="Easy Aircon Control" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">uibutton</proxy>
+	</proxies>
+
+	<connections>
+
+		<connection>
+			<id>5001</id>
+			<facing>6</facing>
+			<connectionname>UIBUTTON</connectionname>
+			<type>2</type>
+			<consumer>False</consumer>
+			<audiosource>False</audiosource>
+			<videosource>False</videosource>
+			<linelevel>False</linelevel>
+			<classes>
+				<class>
+					<classname>UIBUTTON</classname>
+				</class>
+			</classes>
+		</connection>
+
+	</connections>
+
+</devicedata>
