@@ -7,10 +7,15 @@
 	<modified>01/7/2020 10:00</modified>
   	<manufacturer>Garry Newman</manufacturer>
 
-  	<version>1</version>
+  	<version>6</version>
 
 	<small image_source="c4z">icons/device_sm.png</small>
 	<large image_source="c4z">icons/device_lg.png</large>
+
+    <composer_categories>
+        <category>Sensors</category>
+		<category>Security</category>
+    </composer_categories>
 
 	<control>lua_gen</control>
 	<driver>DriverWorks</driver>
@@ -19,25 +24,15 @@
 	<capabilities>
 		<navigator_display_option proxybindingid="5001">
 			<display_icons>
-				<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode0.png</Icon>
-				<state id="mode0">
-					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode0.png</Icon>
+				<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/Off.png</Icon>
+				<state id="Off">
+					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/Off.png</Icon>
 				</state>
-				<state id="mode1">
-					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode1.png</Icon>
-				</state>
-				<state id="mode2">
-					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode2.png</Icon>
-				</state>
-				<state id="mode3">
-					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode3.png</Icon>
-				</state>
-				<state id="mode4">
-					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/mode4.png</Icon>
+				<state id="Armed">
+					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/Armed.png</Icon>
 				</state>
 			</display_icons>
 		</navigator_display_option>
-
 	</capabilities>
 
 	<config>
@@ -51,9 +46,27 @@
 				<type>DEVICE_SELECTOR</type>
 				<items>
 					<item>contactsingle_motionsensor.c4i</item>
-					<item>DoorWindow_zb_nyce_3011.c4z</item>
 				</items>
 				<multiselect>true</multiselect>
+			</property>
+
+
+            <property>
+                <name>Last Message</name>
+                <type>STRING</type>
+                <default>Unknown</default>
+                <readonly>true</readonly>
+            </property>
+
+			<property>
+				<name>Mode</name>
+				<type>LIST</type>
+				<readonly>false</readonly>
+				<default>Off</default>
+				<items>
+					<item>Off</item>
+					<item>Armed</item>
+				</items>
 			</property>
 
 		</properties>
@@ -61,7 +74,7 @@
 	</config>
 
   <proxies>
-		<proxy proxybindingid="5001" name="Easy Aircon Control" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">uibutton</proxy>
+		<proxy proxybindingid="5001" name="Holiday Mode" image_source="c4z" large_image="icons/device_lg.png" small_image="icons/device_sm.png">uibutton</proxy>
 	</proxies>
 
 	<connections>
@@ -82,6 +95,30 @@
 			</classes>
 		</connection>
 
+		<connection>
+			<id>1</id>
+			<facing>6</facing>
+			<connectionname>Contact Sensor</connectionname>
+			<type>1</type>
+			<consumer>True</consumer>
+			<audiosource>False</audiosource>
+			<videosource>False</videosource>
+			<linelevel>False</linelevel>
+			<classes>
+				<class>
+				<classname>CONTACT_SENSOR</classname>
+				</class>
+			</classes>
+		</connection>
+
 	</connections>
+
+    <events>
+        <event>
+            <id>1</id>
+            <name>Triggered</name>
+            <description>Something has triggered holiday mode!</description>
+        </event>
+    </events>
 
 </devicedata>
