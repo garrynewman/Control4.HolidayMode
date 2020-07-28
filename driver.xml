@@ -7,10 +7,10 @@
 	<modified>01/7/2020 10:00</modified>
   	<manufacturer>Garry Newman</manufacturer>
 
-  	<version>6</version>
+  	<version>8</version>
 
-	<small image_source="c4z">icons/device_sm.png</small>
-	<large image_source="c4z">icons/device_lg.png</large>
+	<small image_source="c4z">icons/device_sm.gif</small>
+	<large image_source="c4z">icons/device_lg.gif</large>
 
     <composer_categories>
         <category>Sensors</category>
@@ -24,12 +24,12 @@
 	<capabilities>
 		<navigator_display_option proxybindingid="5001">
 			<display_icons>
-				<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/Off.png</Icon>
+				<Icon height="88" width="88">controller://driver/GarrysHolidayMode/icons/Off.png</Icon>
 				<state id="Off">
-					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/Off.png</Icon>
+					<Icon height="88" width="88">controller://driver/GarrysHolidayMode/icons/Off.png</Icon>
 				</state>
 				<state id="Armed">
-					<Icon height="88" width="88">controller://driver/EasyAirconControls/icons/Armed.png</Icon>
+					<Icon height="88" width="88">controller://driver/GarrysHolidayMode/icons/Armed.png</Icon>
 				</state>
 			</display_icons>
 		</navigator_display_option>

@@ -20,6 +20,7 @@ function ReceivedFromProxy( id, cmd, tParams )
 		if ( Properties["Mode"] ~= "Armed" ) then mode = "Armed" end
 
 		C4:UpdateProperty( "Mode", mode );
+		C4:SendToProxy( 5001, "ICON_CHANGED", {icon = mode })
 
 	end
 
@@ -43,7 +44,7 @@ end
 function OnPropertyChanged( strProperty )
 	
 	DoBinds();
-	C4:SendToProxy(UIBUTTON, "ICON_CHANGED", {icon = Properties["Mode"] })
+	C4:SendToProxy( 5001, "ICON_CHANGED", {icon = Properties["Mode"] })
 
 end
 
